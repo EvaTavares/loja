@@ -1,7 +1,7 @@
 import { ProductRepository } from './product.repository';
 import { Body, Controller, Get, Post } from "@nestjs/common";
 
-@Controller('/users')
+@Controller('/products')
 export class ProductController {
 
     constructor(private productRepository: ProductRepository) {
@@ -10,13 +10,13 @@ export class ProductController {
 
     // rotas
     @Post()
-    async create(@Body() userData) {
-        this.productRepository.save(userData);
-        return userData;
+    async create(@Body() productData) {
+        this.productRepository.save(productData);
+        return productData;
     }
 
     @Get()
-    async usersList() {
+    async productsList() {
         return this.productRepository.listAll();
     }
 
