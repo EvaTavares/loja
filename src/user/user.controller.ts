@@ -1,9 +1,13 @@
 import { Body, Controller, Get, Post } from "@nestjs/common";
 import { userRepository } from "./user.repository";
 
-@Controller('/users')
-export class UserController {
-    private userRepository = new userRepository();
+@Controller('/products')
+export class ProductController {
+
+    constructor(private userRepository: userRepository) {
+
+    }
+
     // rotas
     @Post()
     async create(@Body() userData) {
