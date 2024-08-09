@@ -1,3 +1,4 @@
+import { CreateProductDTO } from './dto/create-product.dto';
 import { ProductRepository } from './product.repository';
 import { Body, Controller, Get, Post } from "@nestjs/common";
 
@@ -10,7 +11,7 @@ export class ProductController {
 
     // rotas
     @Post()
-    async create(@Body() productData) {
+    async create(@Body() productData : CreateProductDTO) {
         this.productRepository.save(productData);
         return productData;
     }
